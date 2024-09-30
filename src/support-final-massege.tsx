@@ -1,7 +1,7 @@
 import reactLogo from './assets/Group 97.png'
 import { useState } from 'react';
 import vectorArrow from './assets/Vector.svg'
-import './App.css'
+import './support-final-massage.css'
 import { Button } from 'reon-ui-lib'
 import { Collapse } from '@mui/material';
 
@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <>
+    <div id='reon_widget-01'>
       <div className="right-block">
         <div className="main-block">
           <p>Техподдержка</p>
@@ -50,7 +50,7 @@ function App() {
           </div>
         </div>
       </Collapse>
-    </>
+    </div>
   );
 }
 
