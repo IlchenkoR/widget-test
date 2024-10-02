@@ -1,172 +1,261 @@
-.right-block {
-	width: 265px;
-	background-color: #FFFFFF;
-  }
-  
-  .main-block{
-	margin:0px 10px;
-	padding: 20px 0 30px;
-  }
+.reon-support-right_modal {
+    width: 265px;
+    background-color: #ffffff;
+}
 
-  .new_task {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-  }
+.reon-support-application_form {
+    margin: 0px 10px;
+    padding: 20px 0 30px;
+    position: relative;
+}
 
-  .first-block{
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-  }
+.reon-support-new_application {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
-  .second-block{
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 100%;
-  }
+.reon-support-application_first_block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
-  .third-block {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 100%;
-	margin-bottom: 30px;
-  }
+.reon-support-application_second-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
-  .first-block h3 {
-	margin: 0;
+.reon-support-application_third_block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.reon-support-application_first_block h3 {
+    margin: 0;
+    font-family: PT Sans, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25.88px;
+    text-align: center;
+    color: #363b44;
+}
+
+.reon-support-application_first_block a {
+    font-family: PT Sans, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: center;
+    color: #366fb4;
+    width: 100%;
+    margin: 3px auto 20px;
+}
+
+.reon-support-application_first_block p {
+    font-family: PT Sans, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12.94px;
+    text-align: left;
+    color: #366fb4;
+    width: 100%;
+}
+
+.reon-support-application_first_block > label {
+    width: 100%;
+    height: 118px;
+    margin: 20px auto;
+}
+
+.reon-support-application_first_block > label > input {
+    background-color: #ffffff;
+    width: 225px;
+    height: 100%;
+}
+
+.reon-support-new_application h4 {
+    margin: 30px auto 20px;
+    font-family: PT Sans, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.29px;
+    text-align: center;
+    color: #363b44;
+}
+
+.reon-support-application_second-block p {
+    font-family: PT Sans, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.53px;
+    text-align: left;
+    color: #363b44;
+}
+
+.reon-support-application_second-block a{
+    color: #366fb4;
+	text-decoration: none;
+}
+
+.reon-support-application_second-block > label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reon-support-application_second-block > label > input {
+    background-color: #ffffff;
+    width: 225px;
+    height: 100%;
+}
+
+.reon-support-application_third_block h4 {
+    margin-bottom: 10px;
+}
+
+.reon-support-application_third_block a {
+	text-decoration: none;
+    font-family: PT Sans, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15.53px;
+    text-align: left;
+    color: #366fb4;
+}
+
+.download {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.reon-support-application_third_block > label {
+    width: 100%;
+}
+
+.reon-support-application_third_block > label > input {
+    background-color: #ffffff;
+    width: 225px;
+    height: 100%;
+}
+
+.reon-support-application_form > :last-child {
+    align-items: end;
+}
+
+.hidden {
+    display: none;
+}
+
+.reon-support-application_file_field {
+    width: 225px;
+    height: 39px;
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.reon-support-application_file_field_open {
+	height: 99px;
+	border: dashed 1px #c2c2c2;
+	align-items: start;
+}
+
+.reon-support-application_preview p {
+    font-family: PT Sans, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.41px;
+    text-align: left;
+}
+
+.reon-support-application_first_block ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.reon-support-application_first_block li {
+    border: 1px solid #c2c2c2;
+    height: 50px;
+    font-family: PT Sans, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.82px;
+    text-align: left;
+    margin-top: 10px;
+    color: #363b44;
+    border-radius: 5px;
+}
+
+.reon-support-application_attached_files {
+    height: 100%;
+    margin: auto 10px;
+    display: flex;
+    align-items: center;
+}
+
+.reon-support-application_file_info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+#reon-support-application_close_img{
+	margin: auto 0px auto auto;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.reon-support-application_files_name{
 	font-family: PT Sans, sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 25.88px;
-	text-align: center;
-	color: #363B44;
-  }
-
-  .first-block a {
-	font-family: PT Sans, sans-serif;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 400;
-	line-height: 19.41px;
-	text-align: center;
-	color: #366FB4;
-	width: 100%;
-	margin: 3px auto 20px;
-  }
+	line-height: 16.82px;
+	text-align: left;
+	color: #363B44;
+}
 
-  .first-block p {
+.reon-support-application_files_size{
 	font-family: PT Sans, sans-serif;
 	font-size: 10px;
 	font-weight: 400;
 	line-height: 12.94px;
-	text-align: left;	
-	color: #366FB4;
-	width: 100%;
-  }
-
-  .first-block > ._container_15tz7_1{
-	width: 100%;
-	height: 118px;
-	margin: 20px auto	;
-  }
-
-  .first-block > ._container_15tz7_1 > ._input_15tz7_7 {
-	background-color: #FFFFFF;
-	width: 225px;
-	height: 100%;
-  }
-
-  .new_task h4 {
-	margin: 30px auto 20px ;
-	font-family: PT Sans, sans-serif;
-	font-size: 18px;
-	font-weight: 400;
-	line-height: 23.29px;
-	text-align: center;
-	color: #363B44;
-  }
-
-  .second-block p {
-	font-family: PT Sans, sans-serif;
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 15.53px;
 	text-align: left;
 	color: #363B44;
-  }
+}
 
-  .second-block a {
-	color: #366FB4;
-  }
+.reon-support-application_upload_button{
+	height: 17px;
+}
 
-  .second-block > ._container_15tz7_1{
-	width: 100%;
-	margin-bottom: 10px;
-  }
+.reon-support-application_upload_text{
+	height: 39px;
+	display: flex;
+	align-items: center;
+}
 
-  .second-block > ._container_15tz7_1 > ._input_15tz7_7 {
-	background-color: #FFFFFF;
-	width: 225px;
-	height: 100%;
-  }
-
-  .third-block h4{
-	margin-bottom: 10px;
-  }
-
-  .third-block a{
-	font-family: PT Sans,  sans-serif;
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 15.53px;
-	text-align: left;
-	color: #366FB4;
-  }
-
-  .download{
+.new_modul{
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 20px;
-  }
-
-  .third-block > ._container_15tz7_1{
-	width: 100%;
-  }
-
-  .third-block > ._container_15tz7_1 > ._input_15tz7_7 {
-	background-color: #FFFFFF;
-	width: 225px;
-	height: 100%;
-  }
-
-  .main-block > :last-child {
-	align-items: end;
-  }
-
-  .hidden {
-	display: none;
+	align-items: center;
 }
-
-.new-block{
-	width: 225px;
-	border: 1px solid #C2C2C2;
-	border-radius: 5px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;	
-	padding: 0px 10px;
-}
-
-.preview p{
-	font-family: PT Sans,  sans-serif;
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 19.41px;
-	text-align: left;
-}
-
-
-
