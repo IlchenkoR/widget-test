@@ -24,7 +24,6 @@ function App() {
         <img
           className={`arrow ${isVisible ? 'rotated' : ''}`}
           src={vectorArrow}
-          alt="Стрелка"
           onClick={handleArrowClick}
         />
       </div>
@@ -43,7 +42,7 @@ function App() {
         <div className="references">
           <div>
             <h3>
-              <span className="green-text">15+ ПОЛЕЗНЫХ ВИДЖЕТОВ</span> ДЛЯ АМОСПМ!
+              <span className="green-text">15+ ПОЛЕЗНЫХ ВИДЖЕТОВ</span> ДЛЯ АМОСRМ!
             </h3>
             <p>Расширьте возможности вашей amoCRM, и сделай работу в системе еще быстрее и удобнее! Переходи и устанавливай!</p>
             <button>REON.МАРКЕТ</button>
