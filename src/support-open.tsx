@@ -1,12 +1,11 @@
 import './support-open.css';
-import { TextField, Button, Select, NumberField } from 'reon-ui-lib';
+import { TextField, Button, Select, CircularLoader } from 'reon-ui-lib';
 import clip from './assets/clip.svg';
 import fileIcon from './assets/file_icon.svg';
 import closeIcon from './assets/close.svg';
 import React, { useState } from 'react';
 
 function App() {
-    const placeHolderText = 'Выберите';
     const [files, setFiles] = useState<File[]>([]);
     const [isDragOver, setIsDragOver] = useState(false);
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,17 +16,23 @@ function App() {
         }
     };
 
+    const placeholderText = `Опишите Вашу задачу \n или проблему`
+
     const handleRemoveFile = (index: number) => {
         setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
     };
 
     const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+        console.log(event.target)
         event.preventDefault();
         setIsDragOver(true);
     };
 
-    const handleDragLeave = () => {
-        setIsDragOver(false);
+    const handleDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
+        const relatedTarget = event.relatedTarget;
+        if (!relatedTarget || !event.currentTarget.contains(relatedTarget as Node)) {
+            setIsDragOver(false);
+        }
     };
 
     const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -40,11 +45,60 @@ function App() {
         }
     };
 
+    const [widgetValue, setWidgetValue] = useState<string[]>([]);
+    const [programValue, setProgramValue] = useState<string>('first');
+
+    const handleWidgetChange = (newValue: string[]) => {
+        setWidgetValue(newValue);
+    };
+
+    const handleProgramChange = (newValue: string) => {
+        setProgramValue(newValue);
+    };
+
+    const [valueFio, setValueFio] = useState<string>('');
+    const [valueProgram, setValueProgram] = useState<string>('');
+    const [valuePhone, setValuePhone] = useState<string>('');
+
+    const handleChangeProgrammCode = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (/^\d*$/.test(value)) {
+            setValueProgram(value);
+        }
+    };
+
+    const handleChangeFio = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = event.target.value;
+        if (/^[a-zA-Zа-яА-ЯёЁ\s]*$/.test(newValue)) {
+            setValueFio(newValue);
+        }
+    };
+
+    const handleChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = event.target.value;
+        console.log(typeof newValue)
+        if (/^[\+\-\(\)\d]*$/.test(newValue)) {
+            setValuePhone(newValue);
+        }
+    };
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const handlePictureChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setIsLoading(true);
+        const selectedFiles = Array.from(event.target.files || []);
+        setFiles(selectedFiles);
+        setIsLoading(false); 
+    };
+
+
+
     return (
-        <div className="reon-support-right_modal">
+        <div className="reon-support-right_modal"
+        onDragLeave={handleDragLeave}>
             <div
-                className={`reon-support-application_form`}
-				onDragOver={handleDragOver}
+                className={`reon-support-application_form`} 
+                onDragOver={handleDragOver}
             >
                 <div className="reon-support-new_application">
                     <div className="reon-support-application_first_block">
@@ -59,9 +113,9 @@ function App() {
                                 second: <>Второй</>,
                             }}
                             selectionSettings={{
-                                multiple: false,
-                                onChange: function iu() {},
-                                value: 'first',
+                                multiple: true,
+                                onChange: handleWidgetChange,
+                                value: widgetValue,
                             }}
                             variant="underlined"
                             styles={{
@@ -69,21 +123,18 @@ function App() {
                                     width: '245px',
                                 },
                             }}
-                        ></Select>
-                        <TextField
-                            id="reon-support-application-textfield"
-                            label="Инпут"
-                            variant="outlined"
-                            placeholder={placeHolderText}
-                        ></TextField>
+                        />
+                        <textarea id="reon-support-application-textfield" placeholder={placeholderText}>
+
+                        </textarea>
                         <div
                             className={`reon-support-application_file_field ${
                                 isDragOver
                                     ? 'reon-support-application_file_field_open'
                                     : ''
                             }`}
-								// onDragLeave={handleDragLeave}
                             onDrop={handleDrop}
+                            
                         >
                             <div className='new_modul'>
                                 <label
@@ -98,7 +149,7 @@ function App() {
                                     type="file"
                                     id="reon-support-application_image_uploads"
                                     name="image_uploads"
-                                    accept=".jpg, .jpeg, .png"
+                                    accept=".jpg, .jpeg, .png, .pdf"
                                     className="hidden"
                                     multiple
                                     onChange={handleFileChange}
@@ -120,7 +171,13 @@ function App() {
                                 {files.map((file, index) => (
                                     <li key={index}>
                                         <div className="reon-support-application_attached_files">
-                                            <img src={fileIcon}></img>
+                                            {isLoading ? (
+                                                <CircularLoader
+                                                color='#4C8BF7'
+                                                />
+                                            ) : (
+                                                <img src={fileIcon}></img>
+                                            )}
                                             <div className="reon-support-application_file_info">
                                                 <div className="reon-support-application_files_name">
                                                     {file.name}
@@ -128,9 +185,9 @@ function App() {
                                                 <div className="reon-support-application_files_size">
                                                     {(
                                                         file.size /
-                                                        (1024)
+                                                        (1024 * 1024)
                                                     ).toFixed(2)}{' '}
-                                                    KB
+                                                    MB
                                                 </div>
                                             </div>
                                             <img
@@ -154,12 +211,16 @@ function App() {
                             label="Инпут"
                             variant="outlined"
                             placeholder="+7 (000) 000-00-00"
+                            value={valuePhone}
+                            onChange={handleChangePhone}
                         ></TextField>
                         <TextField
                             id="reon-support-fio_field"
                             label="Инпут"
                             variant="outlined"
                             placeholder="ФИО"
+                            value={valueFio}
+                            onChange={handleChangeFio}
                         ></TextField>
                         <TextField
                             id="reon-support-mail_field"
@@ -196,15 +257,15 @@ function App() {
                         <Select
                             id="reon-support-application_select_program"
                             label="Название"
-                            placeholder="Выберите виджеты"
+                            placeholder="Выберите программу"
                             options={{
                                 first: <>Anydesk</>,
                                 second: <>RuDesktop</>,
                             }}
                             selectionSettings={{
                                 multiple: false,
-                                onChange: function iu() {},
-                                value: '',
+                                onChange: handleProgramChange,
+                                value: programValue
                             }}
                             variant="underlined"
                             styles={{
@@ -216,7 +277,10 @@ function App() {
                         <TextField
                             id="reon-support-application_program_code"
                             label="Инпут"
+                            variant="outlined"
                             placeholder="000 000 000"
+                            value={valueProgram}
+                            onChange={handleChangeProgrammCode}
                         ></TextField>
                     </div>
                     <Button appearance="contained" spacing="large">
